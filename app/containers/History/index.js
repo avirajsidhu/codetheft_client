@@ -18,6 +18,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import {requestGetAxios} from '../../utils/request';
 import moment from "moment";
+import {BASE_URL} from '../../utils/helpers' 
 
 const useStyles = makeStyles({
   root: {
@@ -45,7 +46,7 @@ const useStyles = makeStyles({
 export function History() {
   const [questions, setData] = React.useState([]);
   (async function  getData (){
-      const response = await requestGetAxios("http://192.168.1.2:4000/questions");
+      const response = await requestGetAxios(`${BASE_URL}/questions`);
       if(response.status === 200){
         setData(response.data.data);
       }

@@ -5,9 +5,10 @@ import {
 } from './selectors';
 import {requestAxios} from 'utils/request';
 import { GetResult } from './constants';
+import {BASE_URL} from '../../utils/helpers';
 
 export function* fetchResult() {
-  const requestURL = `http://192.168.1.2:4000/evaluateInput`;
+  const requestURL = `${BASE_URL}/evaluateInput`;
   const questionCode = yield select(makeSelectQuestionCode());
   const inputValue = yield select(makeSelectInputValue());
   var params = {
